@@ -1,0 +1,75 @@
+@import 'semantic/semantic.css';
+@import 'semantic/pgwmodal.css';
+body{background:#fff;-webkit-overflow-scrolling: touch;}
+#wrap{min-width:783px;min-height:583px;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+/* lottery-head */
+.lot-head{border-bottom:2px solid #d95c5c;height:55px;padding:10px;}
+.lot-head .item{display:inline-block;}
+.lot-head .profile{position:absolute;right:0;top:3px;}
+.profile .quick_item{float:left;position:relative}
+.quick_link {
+display: block;
+_width: 26px;
+height: 43px;
+padding: 0 15px;
+cursor: pointer;
+-webkit-transition: height .2s ease;
+-moz-transition: height .2s ease;
+-o-transition: height .2s ease;
+transition: height .2s ease;
+}
+.ico_history_26, .ico_collect_26, .ico_message_26, .ico_upload_26, .ico_vgirl_26 {
+display: inline-block;
+zoom: 1;
+width: 26px;
+height: 26px;
+background-image: url(/img/sprite_common.32.png);
+background-repeat: no-repeat;
+}
+.ico_collect_26 {
+background-position: -30px 0;
+}
+.quick_txt {display: block;margin-top: -2px;text-align: center;color: #b0b0b0;}
+.profile .divide {
+position: absolute;
+top: 6px;
+right: 0;
+width: 1px;
+height: 26px;
+overflow: hidden;
+background: #f0f0f0;
+background: -webkit-linear-gradient(top,rgba(252,252,252,1) 0,rgba(232,232,232,1) 50%,rgba(252,252,252,1) 100%);
+background: -moz-linear-gradient(top,rgba(252,252,252,1) 0,rgba(232,232,232,1) 50%,rgba(252,252,252,1) 100%);
+background: -ms-linear-gradient(top,rgba(252,252,252,1) 0,rgba(232,232,232,1) 50%,rgba(252,252,252,1) 100%);
+background: linear-gradient(top,rgba(252,252,252,1) 0,rgba(232,232,232,1) 50%,rgba(252,252,252,1) 100%);
+}
+.ui.card{float:left;margin-right:1em}
+.red{color:#c70000}
+.ui.segment.bet-red-code{margin:3em 2em 0;padding:0.5em 1em;}
+.ui.segment.bet-blue-code{margin:1em 2em 0.5em;padding:0.5em 1em}
+.ui.segment.bet-red-code .status{position:absolute;top:-3em;left: 0;}
+.ui.small.button.ball{width: 25px;height: 25px;line-height: 25px;padding: 0;border-radius: 12px;}
+#wrap .ui.segment .bet-ball{margin:0.5em!important}
+#wrap .ui.bottom.attached.label{background: #f6f6f6;}
+#wrap .ui.menu.lot-nav{margin:0;background:#f8f8f8;}
+#wrap .logo{display:inline-block;width:45px;height:45px;margin-top: -3px;}
+#wrap .random-num{width: 17em;position: absolute;z-index: 3;top: 2em;right: -2em;}
+#wrap .random-num .button{margin-bottom:0.5em;width:43px;padding: 0.8em 0.5em;}
+#wrap .icon.dropdown{margin-left:0.5em;}
+#wrap .countdown .red{margin:0 0.2em;}
+#wrap .user_name{margin-top:2px;}
+#wrap .no-login{margin:1em 1em 0 0}
+#bet-code{margin: 0.5em 18em 0 2em;position:relative;}
+#bet-code .message{padding:0.5em 1em;}
+#bet-code .message .header{text-align:right;}
+#bet-code .list{height:107px;overflow-y:auto;list-style:none;color:#000}
+#bet-code .list li:before{content:''}
+#bet-code .list li{margin-left:0}
+#bet-code .list li .txt{margin-right:1em}
+#bet-code .list li .money{float:right;margin-right:1em}
+#bet-code .list li .remove{float:right;margin:0.1em 1em 0 0}
+#bet-code .operate{position:absolute;top:0em;right: -17em;}
+#bet-code .operate .menu{width:6rem}
+#bet-code .operate .card{width:15em}
+#bet-code .operate .field{margin-bottom:0.5em;}
+#bet-code .operate input{width: 6em;text-align: center;padding: 0.3em 1em;}

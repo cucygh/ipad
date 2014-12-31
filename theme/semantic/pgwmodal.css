@@ -1,0 +1,105 @@
+/**
+ * PgwModal - Version 2.0
+ *
+ * Copyright 2014, Jonathan M. Piat
+ * http://pgwjs.com - http://pagawa.com
+ *
+ * Released under the GNU GPLv3 license - http://opensource.org/licenses/gpl-3.0
+ */
+body.pgwModalOpen {
+    overflow: hidden;
+}
+
+#pgwModalBackdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9000;
+}
+
+#pgwModal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index : 9010;
+    overflow-x: auto;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+#pgwModal .pm-container {
+    margin: 10px;
+}
+
+#pgwModal .pm-body {
+    display: inline-block;
+    max-width: 800px;
+    min-width: 300px;
+    position: relative;
+    width: 100%;
+    z-index: 9020;
+    margin-top: 10px;
+}
+
+/**
+ * NOTICE:
+ * If you want to update the modal rendering, please only edit the content below.
+ * And if you update a class name, remember to specify it in the plugin configuration.
+ * Please don't change the class names prefixed by "pm-".
+ */
+
+.pgwModalBackdrop {
+    background: #000;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+.pgwModal .pm-body {
+    background-color: #fff;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0px 5px 5px #555;
+    box-shadow: 0 0px 5px 5px #555;
+}
+
+.pgwModal .pm-title {
+    background: #C22708;
+    padding: 10px;
+    border-bottom: 1px solid #d5d5d5;
+    border-radius: 5px 5px 0 0;
+    font-size: 1rem;
+    min-height: 25px;
+    text-align: left;
+    color: #fff;
+    font-weight: bold;
+}
+
+.pgwModal .pm-content {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+.pgwModal .pm-content .segment{
+	box-shadow:none;
+}
+.pgwModal .pm-close {
+    cursor: pointer;
+    position: absolute;
+    top: 9px;
+    right: 15px;
+}
+
+.pgwModal .pm-close span.pm-icon {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAD6CAMAAACI0Kd+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTNERUZERDQ5RURBMTFFM0JERDRBRTNCRDhCNEIxQjIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTNERUZERDU5RURBMTFFM0JERDRBRTNCRDhCNEIxQjIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5M0RFRkREMjlFREExMUUzQkRENEFFM0JEOEI0QjFCMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5M0RFRkREMzlFREExMUUzQkRENEFFM0JEOEI0QjFCMiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pq4EGbAAAAGtUExURe9wcP/l5f////X19fj4+O9xcP39/fPz8/7+/vz8/PT09OhwcMgiC+twcMogDM8cDvn5+cQlCcweDccjCvr6+vf39/v7+91DRvb29u9ycNpCQ8sfDNAbD9EaD8khC8MmCP/m5v/y8v/n5//w8OlwcOdwcPd1d+92dcY0F9AbDudLTOJHSO90cs8bDupOT+xwcN9ERtg+QPFTVuBGR/FSU+9RU9lBOOJISu1wcOhLTvBRUeVKS9hAQu9zcNpAQuxPUfLy8u1QUcYjCsQmCcUkCupOUMYkCsInCM4dDfNTU+5wcM4cDuRIS9g+Qu91c9tDRO9zce9QUfBSU+FGSMkhDPRTVu93dulMTupwcNY+QM0eDcUlCcMmCc0dDf/s7P/t7P/t7f/m5f/u7v/r6//v7v/x8f/9/fzp6v/r6v/v7//p6P/y8f/q6v/o6P/p6f7k5P339/35+fXFxf7l5e7ExP7m5vfPz/bFxdp9ff7v7/nV1ffo6P7r6/7p6f7u7v7n5/7q6f7o6P7x8P7o5/7s7P7t7f7w8Pzo6f7u7f7s6/7q6v7l5P7z8/7x8f///wvykZYAAACPdFJOU/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8A8W0UKQAAAdFJREFUeNrs1VVv3EAUQOFTl5mZwWVmTpmZmZmTpkmaMnN/c3edKFrouZX8UKmqvxdbc2TvrGHMSsVEFaUJKkpzFAsUg1WU9ip2Kc4rziiGqSiNV1EapKJ0TDFJRWmAitJwFaUtih2KbYqziqEqSlsV5xSTVZR2KmYrfqr/Mc1UHFcsVexWLFccUaxQrFUcVmxWNCi2KxYqTirWKOYq1in2KVYp5imOKpYpFitGqygdVIxTUdqoWK/Yr1iiOK2KhagqnVDMUhxQzFccUmxQjFVR6qlypkKlPYrVikWKgSpKpxQzFP1VlFJVLClV6dkNw/ephh+e3t41fLxueDrdROnlbcPna4YPVwzvLxm+XDQ8v2D4etXw+pbhxT3DmweGd3cMr+4bnkwzUXo8xUTp22XDw27mr6ZPN02xblSlJOnar9jtOKproKaUT9g5VFuy38oG60rHNErD9aVzhslvyh+Tn9Cn4ZP3vxxdqOKJqkjZ5769PdvUpPInvSVJWsrb+tRauslJa31K06Yk05SmNamtOWl8VNKYNLcVVz58zU2U+qicqZfKmfqqnGmUitIIFaUhKko9VM40UkVpjIpSd5Uz9VM5U2+VM21S//SS8kuAAQDTM0TGP54IXwAAAABJRU5ErkJggg==);
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-position: 0 -167px;
+}
+.pgwModal .tips-error{
+	margin-left:5em!important;
+}

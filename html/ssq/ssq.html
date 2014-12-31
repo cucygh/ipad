@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>双色球-360彩票</title>
+		<base href="../../"/>
+		<meta charset="GBK">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<!-- app中必须要写的，让页面的尺寸和设备大小保持一致 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<!-- 如果你不希望手机自动将网页中的电话号码显示为拨号的超链接，那么可以这样写： -->
+		<meta name="format-detection" content="telephone=no"/>
+		<!-- 让页面全屏显示，苹果手机OS2.1以上有效 -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- 这个是设置状态条的样式，一般不起作用，除非使用了全屏显示 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!-- 苹果为iOS设备配备了apple-touch-icon私有属性，添加该属性，在iPhone,iPad,iTouch的safari浏览器上可以使用添加到主屏按钮将网站添加到主屏幕上，方便用户以后访问 -->
+		<!-- apple-touch-icon 标签支持sizes属性，可以用来放置对应不同的设备。57×57（默认值）的图标对应320×640的iphone老设备，72×72对应ipad，114×114对应retina屏的iPhone及iTouch。ipad3对应144×144的高分辨率 -->
+		<link rel="apple-touch-icon" href="http://p2.qhimg.com/t01b0f56b331d358632.png" />
+		<meta name="renderer" content="webkit" />
+		<!-- ClearType主要是针对LCD液晶显示器设计，可提高文字的清晰度。 -->
+		<meta http-equiv="cleartype" content="on">
+		<link rel="stylesheet" href="theme/ssq.css"/>
+		<script type="text/javascript" src="js/lib/require-2.1.11.js"></script>
+		<script type="text/javascript" src="js/config/con-default.js"></script>
+		<script type="text/javascript" src="js/lot/ssq/run-ssq.js"></script>
+		
+		<!-- <script type="text/javascript" src="online/js/lib/require-2.1.11.js"></script>
+		<script type="text/javascript" src="online/js/lot/ssq/run-ssq.js"></script> -->
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="lot-head">
+			  <i class="icon-logo"></i>
+			  <div class="content">
+					<div class="item">
+						<img src="/img/logo_ssq.png" class="ui tiny image logo">
+					</div>
+					<div class="item">
+						<p class="logo-txt">双色球</p>
+					</div>
+					<div class="item">
+						<p>距 <b class="red issue">-</b> 期截止还剩：</p>
+					</div>
+					<div class="item">
+						<p class="countdown"><b class="red">-</b>小时<b class="red">-</b>分<b class="red">-</b>秒</p>
+					</div>
+					
+					<div class="item profile">
+						
+					</div>					
+			  </div>
+			</div>
+			<!-- 导航 -->
+			<div class="ui menu red lot-nav">
+			  <a href="#" class="item active">普通投注</a>
+			  <a href="#" class="item">胆拖投注</a>
+			  <a href="#" class="item">参与合买</a>
+			  <a href="#" class="item">定制跟单</a>			  
+			</div>
+			<!-- 三级导航 -->
+			<div class="ui segment bet-red-code" style="min-height: 9.5rem;">
+			  <div class="ui pointing below label jiangchi status yellow">奖池：1亿3400千万</div> 
+			  <a class="ui ribbon label red">红球区</a>
+			  <div class="ui top right attached label yellow">
+				上期开奖：<b class="red">03</b> <b class="red">09</b> <b class="red">11</b> <b class="red">14</b> <b class="red">21</b>
+			  </div>			  
+			 <div class="bet-ball">
+				<div class="ui small button ball">01</div>
+				<div class="ui small button ball">02</div>
+				<div class="ui small button ball">03</div>
+				<div class="ui small button ball">04</div>
+				<div class="ui small button ball">05</div>
+				<div class="ui small button ball">06</div>
+				<div class="ui small button ball">07</div>
+				<div class="ui small button ball">08</div>
+				<div class="ui small button ball">09</div>
+				<div class="ui small button ball">10</div>
+				<div class="ui small button ball">11</div>
+				<div class="ui small button ball">12</div>
+				<div class="ui small button ball">13</div>
+				<div class="ui small button ball">14</div>
+				<div class="ui small button ball">15</div>
+				<div class="ui small button ball">16</div>
+				<div class="ui small button ball">17</div>
+			 </div>
+			 <div class="bet-ball">
+				<div class="ui small button ball">18</div>
+				<div class="ui small button ball">19</div>
+				<div class="ui small button ball">20</div>
+				<div class="ui small button ball">21</div>
+				<div class="ui small button ball">22</div>
+				<div class="ui small button ball">23</div>
+				<div class="ui small button ball">24</div>
+				<div class="ui small button ball">25</div>
+				<div class="ui small button ball">26</div>
+				<div class="ui small button ball">27</div>
+				<div class="ui small button ball">28</div>
+				<div class="ui small button ball">29</div>
+				<div class="ui small button ball">30</div>
+				<div class="ui small button ball">31</div>
+				<div class="ui small button ball">32</div>
+				<div class="ui small button ball">33</div>
+			 </div>
+			  
+			  
+			  <div class="ui bottom attached label">
+				本期热号：03 09 23 33&nbsp;&nbsp;&nbsp;&nbsp;本期冷号：03 09 23 33
+				<div class="ui dropdown active visible random-ball" tabindex="0" style="float:right">
+					<div class="text">机选 6 个</div><i class="dropdown icon"></i>
+					<div class="random-num" style="display:none" type="red" max="33">
+						<div class="ui button tiny">6</div>
+						<div class="ui button tiny">7</div>
+						<div class="ui button tiny">8</div>
+						<div class="ui button tiny">9</div>
+						<div class="ui button tiny">10</div>
+						<div class="ui button tiny">11</div>
+						<div class="ui button tiny">12</div>
+						<div class="ui button tiny">13</div>
+						<div class="ui button tiny">14</div>
+						<div class="ui button tiny">15</div>
+						<div class="ui button tiny">16</div>
+						<div class="ui button tiny">17</div>
+						<div class="ui button tiny">18</div>
+						<div class="ui button tiny">19</div>
+						<div class="ui button tiny">20</div>
+					</div>
+				</div>
+			  </div>
+			</div>
+			<div class="ui segment bet-blue-code" style="min-height: 7.2rem;">
+			  <a class="ui ribbon label blue">蓝球区</a>
+			  <div class="ui top right attached label yellow">
+				上期开奖：<b class="red">03</b> <b class="red">09</b> <b class="red">11</b> <b class="red">14</b> <b class="red">21</b>
+			  </div>
+			   <div class="bet-ball">
+				<div class="ui small button ball">01</div>
+				<div class="ui small button ball">02</div>
+				<div class="ui small button ball">03</div>
+				<div class="ui small button ball">04</div>
+				<div class="ui small button ball">05</div>
+				<div class="ui small button ball">06</div>
+				<div class="ui small button ball">07</div>
+				<div class="ui small button ball">08</div>
+				<div class="ui small button ball">09</div>
+				<div class="ui small button ball">10</div>
+				<div class="ui small button ball">11</div>
+				<div class="ui small button ball">12</div>
+				<div class="ui small button ball">13</div>
+				<div class="ui small button ball">14</div>
+				<div class="ui small button ball">15</div>
+				<div class="ui small button ball">16</div>
+			 </div>
+			  <div class="ui bottom attached label">
+			  本期热号：03 09 23 33&nbsp;&nbsp;&nbsp;&nbsp;本期冷号：03 09 23 33
+				<div class="ui dropdown active visible random-ball" tabindex="0" style="float:right">
+					<div class="text">机选 1 个</div><i class="dropdown icon"></i>
+					<div class="random-num" style="display:none" type="blue" max="16">
+						<div class="ui button tiny">1</div>
+						<div class="ui button tiny">2</div>
+						<div class="ui button tiny">3</div>
+						<div class="ui button tiny">4</div>
+						<div class="ui button tiny">5</div>
+						<div class="ui button tiny">6</div>
+						<div class="ui button tiny">7</div>
+						<div class="ui button tiny">8</div>
+						<div class="ui button tiny">9</div>
+						<div class="ui button tiny">10</div>
+						<div class="ui button tiny">11</div>
+						<div class="ui button tiny">12</div>
+						<div class="ui button tiny">13</div>
+						<div class="ui button tiny">14</div>
+						<div class="ui button tiny">15</div>
+						<div class="ui button tiny">16</div>
+					</div>
+				</div>
+			  </div>
+			</div>
+			
+			<div class="bet-static bet-confirm" style="text-align:center">
+				您选了<b class="red zhu">0</b>注，<b class="red money">0</b>元
+				<a href="#" class="ui teal image label add-bet">添加投注</a>
+				<a href="#" class="ui image label clear-bet">清空选号</a>
+			</div>
+			<div id="bet-code">
+				<div class="ui warning icon message">
+				  <div class="content">
+					  <div class="header bet-detail">第 <b class="bet-issue">20141208</b> 期  方案 <b class="red bet-count">0</b> 注，<b class="red bet-money">0</b> 元  <a class="ui image label random-zhu" href="#" num="1">机选1注</a><a class="ui image label random-zhu" num="5" >机选5注</a><a class="ui image label clear-all">清空列表</a></div>
+						<ul class="list" id="bet-list">
+							
+						</ul>
+				 </div>
+			    </div>	
+				<div class="operate">
+					<div class="ui card">
+					  <div class="content">
+						<div class="description">
+							<div class="ui form">
+								<div class="inline field">
+								  <label>设置倍数</label>
+								  <input type="text" placeholder="1" maxlength="5">
+								  <label>倍</label>
+								</div>
+								<div class="inline field">
+								  <label>设置追号</label>
+								  <input type="text" placeholder="1" maxlength="3">
+								  <label>期</label>
+								</div>	
+								<div class="inline field">
+									<div class="ui checkbox">
+									  <input type="checkbox" checked>
+									  <label>中奖后停止追号</label>
+									</div>
+								  </div>
+							</div>
+						</div>
+					  </div>
+					  <div class="ui two bottom attached buttons">
+						<div class="ui button yellow buy-cooperate">发起合买</div>
+						<div class="ui button red buy-own">立即投注</div>
+					  </div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	<script type="text/template" id="bet-item">
+		<li code="{code}" count="{count}"><b class="txt">{type}</b><b class="red">{red}</b>+<b class="blue">{blue}</b><i class="remove icon"></i><b class="money">{count}注，{money}元</b> </li>
+	</script>
+	
+	</body>
+</html>
