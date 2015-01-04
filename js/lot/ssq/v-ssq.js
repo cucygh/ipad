@@ -25,6 +25,7 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 				'click .clear-bet' : 'fun_rm_bet',
 				'click .random-zhu' : 'fun_random_zhu',
 				'click .buy-own' : 'fun_own_buy',
+				'click .buy-cooperate' : 'fun_coop_buy',
 				'click .clear-all' : 'fun_clear_all'
 			}, //机选下拉
 			fun_dropdown : function (e) {
@@ -114,7 +115,7 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 				e && e.preventDefault();
 				$('#bet-list').html('');
 			},
-			//立即投注
+			//立即投注/代购
 			fun_own_buy : function () {
 				var $list = $('#bet-list li');
 				var code = [];
@@ -150,6 +151,14 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 						});
 					}
 				});
+			},
+			fun_coop_buy:function(e){
+				e&&e.preventDefault();
+				Lot.dialog.custome({
+					fixed:true,
+					align:'right top',
+					content:'见风使舵空间设计'					
+				})
 			}
 		});
 	return View_ssq;

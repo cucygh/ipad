@@ -1,5 +1,6 @@
 @import 'semantic/semantic.css';
 @import 'semantic/pgwmodal.css';
+@import 'semantic/ui-dialog.css';
 body{background:#fff;-webkit-overflow-scrolling: touch;}
 #wrap{min-width:783px;min-height:583px;-webkit-tap-highlight-color: rgba(0,0,0,0);}
 /* lottery-head */
