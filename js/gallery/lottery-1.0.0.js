@@ -1,4 +1,4 @@
-define(['zepto', 'underscore'], function ($, Lot) {
+define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 	var domain = 'http://ygh.cp.360.cn';
 	// 彩种简称、ID、全称
 	var lottery = {
@@ -226,13 +226,43 @@ define(['zepto', 'underscore'], function ($, Lot) {
 		}
 	};
 	//辅助相关
-	var help={
-		is_web:location.protocol=="chrome-extension:"?false:true,//是否为web端，false为扩展应用
+	var help = {
+		is_web : location.protocol == "chrome-extension:" ? false : true, //是否为web端，false为扩展应用
 	}
+	//对话框相关
+	var _dialog = {
+		alert : function (content) {
+			dialog({
+				title : '温馨提示',
+				content : content,
+				okValue : '确定',
+				ok:function(){
+					this.close().remove();
+				},
+				fixed : true
+			}).showModal();
+		},
+		prompt : function (options) {
+			dialog({
+				title : options.title || '温馨提示',
+				content : options.content || '',
+				okValue : options.ok_txt || '确定',
+				fixed : true,
+				ok : options.ok || function () {},
+				cancelValue : options.cancel_txt || '取消',
+				cancel : options.cancel || function () {}
+			}).showModal();
+		},
+		custome : function (options) {
+			dialog(options).showModal();
+		}
+	};
+
 	return {
 		string : string,
 		bet : bet,
 		cookie : cookie,
-		help:help
+		help : help,
+		dialog:_dialog
 	}
 });
