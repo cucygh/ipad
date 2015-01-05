@@ -137,11 +137,6 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 				Lot.bet.post(param, function (res) {
 					if (res.xCode == 0) {
 						window.localStorage.setItem('ipad_order', JSON.stringify(res));
-						/* if (Lot.help.is_web) {
-							location.href = '/pay';
-						} else {
-							location.href = 'html/pub/pay.html';
-						} */
 						Lot.dialog.pay();
 					} else {
 						$.pgwModal({
@@ -156,7 +151,6 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 			fun_coop_buy:function(e){
 				e&&e.preventDefault();
 				Lot.dialog.custome({
-					fixed:true,
 					align:'right top',
 					content:'见风使舵空间设计'					
 				})

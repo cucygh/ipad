@@ -38,11 +38,18 @@ define(['backbone', 'md5', 'zepto', 'lottery'], function (Backbone, md5, $, Lot)
 								url : _this.domain + 'int/querybalance/',
 								dataType : 'json',
 								success : function (data) {
-									_this.set({
-										userName : data.username,
-										imgurl : data.imgUrl,
-										isOn : data ? true : false
-									});
+									if(data.code==0){
+										_this.set({
+											userName : data.username,
+											imgurl : data.imgUrl,
+											isOn : data ? true : false
+										});
+									}else{
+										_this.set({
+											isOn:false
+										})
+									}
+									
 								},
 								type : 'post',
 								error : function (err) {
