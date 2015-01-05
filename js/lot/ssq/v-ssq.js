@@ -137,11 +137,12 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 				Lot.bet.post(param, function (res) {
 					if (res.xCode == 0) {
 						window.localStorage.setItem('ipad_order', JSON.stringify(res));
-						if (Lot.help.is_web) {
+						/* if (Lot.help.is_web) {
 							location.href = '/pay';
 						} else {
 							location.href = 'html/pub/pay.html';
-						}
+						} */
+						Lot.dialog.pay();
 					} else {
 						$.pgwModal({
 							title : 'Œ¬‹∞Ã· æ',

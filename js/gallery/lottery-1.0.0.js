@@ -236,7 +236,7 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 				title : '温馨提示',
 				content : content,
 				okValue : '确定',
-				ok:function(){
+				ok : function () {
 					this.close().remove();
 				},
 				fixed : true
@@ -255,6 +255,13 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 		},
 		custome : function (options) {
 			dialog(options).showModal();
+		},
+		pay : function (order) {
+			dialog({
+				fixed : true,
+				title : '确认付款',
+				url : 'html/pub/pay.html'
+			}).showModal();
 		}
 	};
 
@@ -263,6 +270,6 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 		bet : bet,
 		cookie : cookie,
 		help : help,
-		dialog:_dialog
+		dialog : _dialog
 	}
 });
