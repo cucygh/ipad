@@ -139,20 +139,17 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 						window.localStorage.setItem('ipad_order', JSON.stringify(res));
 						Lot.dialog.pay();
 					} else {
-						$.pgwModal({
-							title : '温馨提示',
-							maxWidth : 390,
-							mainClassName : 'pgwModal alertModal',
-							content : '<p style="text-align:center;padding:1em">' + (res.xMessage || res.xCode) + '</p>'
-						});
+						Lot.dialog.alert(res.xMessage || res.xCode);
 					}
 				});
 			},
 			fun_coop_buy:function(e){
 				e&&e.preventDefault();
 				Lot.dialog.custome({
-					align:'right top',
-					content:'见风使舵空间设计'					
+					title:'发起合买',
+					url:'html/pub/coop.html',
+					id:'coop-buy',
+					fixed:true
 				})
 			}
 		});

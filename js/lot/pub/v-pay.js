@@ -25,7 +25,7 @@ define(['zepto', 'backbone', 'm-pay', 'lottery', 'pay-tpl'], function ($, B, mPa
 										value : cur_hb[i].balance / 100,
 										money : cur_hb[i].balance / 100,
 										field : cur_hb[i].field,
-										time : cur_hb[i].validEndTime
+										time : cur_hb[i].validEndTime.split(' ')[0]
 									}));
 							}
 							$hb_menu.html(items.join(''));
@@ -93,8 +93,30 @@ define(['zepto', 'backbone', 'm-pay', 'lottery', 'pay-tpl'], function ($, B, mPa
 					tt : +new Date
 				};
 				this.model.post(param2, function (res) {
+					var $tips = $('#pay_err');
 					if (res.result_code != 9999) {
-						Lot.dialog.alert(res.message || res.result_code);
+						if (res.result_code == '1605' || res.result_code == '1612') {
+							$tips.html(res.message || '由于网络原因，支付结果状态未知,请查看购彩记录');
+						} else {
+							if (res.errno == '9001') {
+								$tips.html(res.message || '登录后才能支付，请先登录');
+							}else{
+								if(res.result_code == '1611'){
+									$tips.html(res.message || '该订单已支付,请查看购彩记录');
+								}else{
+									$tips.html('异常错误，错误码：'+res.result_code);
+								}
+							}
+						}
+					} else {
+						/* $.ajax({
+						url:Lot.help.domain+res.showurl,
+						dataType:'html',
+						type:'POST',
+						success:function(res){
+						$('#wrap').html(res);
+						}
+						}); */
 					}
 				});
 			}

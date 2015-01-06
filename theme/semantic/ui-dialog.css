@@ -442,3 +442,5 @@
     animation: ui-dialog-loading 1.5s infinite linear;
     display: none\9;
 }
+/* add alert */
+.dialog-alert .ui-dialog-grid{min-width:300px;height:200px;}

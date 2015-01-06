@@ -228,6 +228,7 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 	//辅助相关
 	var help = {
 		is_web : location.protocol == "chrome-extension:" ? false : true, //是否为web端，false为扩展应用
+		domain:domain
 	}
 	//对话框相关
 	var _dialog = {
@@ -235,6 +236,7 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 			dialog({
 				title : '温馨提示',
 				content : content,
+				skin : 'dialog-alert',
 				okValue : '确定',
 				ok : function () {
 					this.close().remove();

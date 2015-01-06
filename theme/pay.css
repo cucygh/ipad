@@ -4,4 +4,5 @@
 @import 'semantic/color.css';
 body{background:#fff;-webkit-overflow-scrolling: touch;}
 #wrap{min-width:783px;min-height:583px;-webkit-tap-highlight-color: rgba(0,0,0,0);padding:2em;}
-
+.err-box{overflow: hidden;height: 20px;margin-bottom: 6px;padding-left: 70px;color:red;}
+.footer{padding-left:67px;}
