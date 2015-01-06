@@ -104,7 +104,7 @@ define(['zepto', 'backbone', 'm-pay', 'lottery', 'pay-tpl'], function ($, B, mPa
 								if(res.result_code == '1611'){
 									$tips.html(res.message || '该订单已支付,请查看购彩记录');
 								}else{
-									$tips.html('异常错误，错误码：'+res.result_code);
+									$tips.html(res.message||('异常错误，错误码：'+res.result_code));
 								}
 							}
 						}
@@ -117,6 +117,14 @@ define(['zepto', 'backbone', 'm-pay', 'lottery', 'pay-tpl'], function ($, B, mPa
 						$('#wrap').html(res);
 						}
 						}); */
+						$tips.html('购彩成功');
+						try{
+							console.log(top.modal);
+							var dialog=top.modal.get(window);
+							dialog.close().remove();
+						}catch(e){
+							console.log(e);
+						}
 					}
 				});
 			}

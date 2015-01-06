@@ -266,7 +266,7 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 			}).showModal();
 		}
 	};
-
+	window.modal=Modal;
 	return {
 		string : string,
 		bet : bet,
