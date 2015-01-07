@@ -1,6 +1,7 @@
-define(['backbone', 'zepto', 'm-user', 'user-tpl', 'modal','lottery'], function (Backbone, $, Login, TplLogin, Modal,Lot) {
+define(['backbone', 'zepto', 'm-user', 'user-tpl','lottery'], function (Backbone, $, Login, TplLogin,Lot) {
 	var login = new Login();
 	var $login=$('.loginModal');
+	var is_modal;
 	var Vlogin = Backbone.View.extend({
 			el : 'body',
 			initialize : function () {
@@ -47,19 +48,18 @@ define(['backbone', 'zepto', 'm-user', 'user-tpl', 'modal','lottery'], function 
 					}
 					$('.capcha img').trigger('click');
 				} else {
-					$.pgwModal('close');
+					is_modal.close();
 				}
 			},
 			show : function (e) {
 				e && e.preventDefault();
-				$.pgwModal({
-					title:'ÕÊºÅµÇÂ¼',
-					maxWidth:390,
-					mainClassName:'pgwModal loginModal',
-					content : TplLogin({
+				is_modal=Lot.dialog.custome({
+					title:'ÕËºÅµÇÂ¼',
+					content:TplLogin({
 						user : login.attributes.userName
-					})
-				});
+					}),
+					fixed:true
+				})
 			},
 			exit : function (e) {
 				e && e.preventDefault();

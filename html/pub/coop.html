@@ -1,9 +1,69 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
-	<title></title>
+	<title>发起合买</title>
+	<base href="../../"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<!-- app中必须要写的，让页面的尺寸和设备大小保持一致 -->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- 如果你不希望手机自动将网页中的电话号码显示为拨号的超链接，那么可以这样写： -->
+	<meta name="format-detection" content="telephone=no"/>
+	<!-- 让页面全屏显示，苹果手机OS2.1以上有效 -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- 这个是设置状态条的样式，一般不起作用，除非使用了全屏显示 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- 苹果为iOS设备配备了apple-touch-icon私有属性，添加该属性，在iPhone,iPad,iTouch的safari浏览器上可以使用添加到主屏按钮将网站添加到主屏幕上，方便用户以后访问 -->
+	<!-- apple-touch-icon 标签支持sizes属性，可以用来放置对应不同的设备。57×57（默认值）的图标对应320×640的iphone老设备，72×72对应ipad，114×114对应retina屏的iPhone及iTouch。ipad3对应144×144的高分辨率 -->
+	<link rel="apple-touch-icon" href="http://p2.qhimg.com/t01b0f56b331d358632.png" />
+	<meta name="renderer" content="webkit" />
+	<!-- ClearType主要是针对LCD液晶显示器设计，可提高文字的清晰度。 -->
+	<meta http-equiv="cleartype" content="on">
+	<link rel="stylesheet" href="theme/coop.css"/>
+	<script type="text/javascript" src="js/lib/require-2.1.11.js"></script>
+	<script type="text/javascript" src="js/config/con-default.js"></script>
 </head>
 <body>
-	合买
+	<div class="ui form segment" id="coop-dialog">
+		<div class="ui feed form">
+		  <div class="event">
+			<div class="content">
+			  <div class="summary">
+				方案名称
+				<div class="date inline field">
+					 <input type="text"  id="" placeholder="双色球 第2015003期">
+					 <label><a href="#">还剩余<b class="red">15</b>个字</a></label>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="event" id="hongbao">
+			<div class="content">
+			  <div class="summary">
+				盈利提成
+				<div class="date field">
+					 <select name="dropdown" class="menu">
+						 <option value="0" selected="selected">0%</option>
+						<option value="0.01">1%</option>
+						<option value="0.02">2%</option>
+						<option value="0.03">3%</option>
+						<option value="0.04">4%</option>
+						<option value="0.05">5%</option>
+						<option value="0.06">6%</option>
+						<option value="0.07">7%</option>
+						<option value="0.08">8%</option>
+						<option value="0.09">9%</option>
+						<option value="0.10">10%</option>
+					 </select>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="err-box"><span class="err" id="pay_err"></span></div>
+		  <div class="footer">
+			<span class="ui submit button red" id="btn-pay">立即支付</span>
+			<a href="#">返回修改</a>
+		  </div>
+		</div>
+	</div>
 </body>
 </html>

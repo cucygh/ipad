@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 					appDir : 'js/',
 					baseUrl : "./",
 					dir : './online/js',
-					mainConfigFile:'js/config/con-default.js',
+					mainConfigFile : 'js/config/con-default.js',
 					optimize : "uglify",
 					uglify : {
 						toplevel : true,
@@ -58,12 +58,23 @@ module.exports = function (grunt) {
 					}
 				]
 			}
-		}
+		},
+		'grunt-iconv-lite' : {
+			main : {
+				options : {},
+				files : {
+					'js/lot/pub/user-tpl.js' : 'js/lot/pub/user-tpl.js',
+					'js/lot/pub/pay-tpl.js' : 'js/lot/pub/pay-tpl.js'
+				}
+			}
+		},
 	});
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-handlebars');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-iconv-lite');
 	grunt.registerTask('build', ['requirejs:js_compile_all']);
 	grunt.registerTask('template', ['handlebars:compile']);
 	grunt.registerTask('css', ['requirejs:css_compile_test', 'requirejs:css_compile_test2', 'copy:main']);
+	grunt.registerTask('gbk', ['grunt-iconv-lite:main']);
 };

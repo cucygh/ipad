@@ -87,7 +87,6 @@ define(['backbone', 'md5', 'zepto', 'lottery'], function (Backbone, md5, $, Lot)
 					this.fetch({
 						url : url,
 						success : function (data) {
-							console.log(data);
 							if (data.attributes.errno == '0') {
 								_this.set({
 									isOn : true,

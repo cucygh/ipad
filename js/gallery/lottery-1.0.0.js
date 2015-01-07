@@ -233,7 +233,7 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 	//对话框相关
 	var _dialog = {
 		alert : function (content) {
-			dialog({
+			return dialog({
 				title : '温馨提示',
 				content : content,
 				skin : 'dialog-alert',
@@ -245,7 +245,7 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 			}).showModal();
 		},
 		prompt : function (options) {
-			dialog({
+			return dialog({
 				title : options.title || '温馨提示',
 				content : options.content || '',
 				okValue : options.ok_txt || '确定',
@@ -256,17 +256,17 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 			}).showModal();
 		},
 		custome : function (options) {
-			dialog(options).showModal();
+			return dialog(options).showModal();
 		},
 		pay : function (order) {
-			dialog({
+			return dialog({
 				fixed : true,
 				title : '确认付款',
 				url : 'html/pub/pay.html'
 			}).showModal();
 		}
 	};
-	window.modal=Modal;
+	window.modal=dialog;
 	return {
 		string : string,
 		bet : bet,

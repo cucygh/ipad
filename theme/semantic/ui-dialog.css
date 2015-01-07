@@ -444,3 +444,5 @@
 }
 /* add alert */
 .dialog-alert .ui-dialog-grid{min-width:300px;height:200px;}
+/* dialog-coop */
+.dialog-coop .ui-dialog-grid{min-width:400px;height:200px;}

@@ -59,6 +59,7 @@ define(['zepto', 'backbone', 'm-pay', 'lottery', 'pay-tpl'], function ($, B, mPa
 			},
 			fun_pay : function () {
 				var order = this.get_order().xValue;
+				var _this=this;
 				var type = {
 					'1' : '代购',
 					'2' : '合买',
@@ -109,22 +110,13 @@ define(['zepto', 'backbone', 'm-pay', 'lottery', 'pay-tpl'], function ($, B, mPa
 							}
 						}
 					} else {
-						/* $.ajax({
-						url:Lot.help.domain+res.showurl,
-						dataType:'html',
-						type:'POST',
-						success:function(res){
-						$('#wrap').html(res);
-						}
-						}); */
-						$tips.html('购彩成功');
-						try{
-							console.log(top.modal);
+						$(_this.el).html('购彩成功');
+						/* try{
 							var dialog=top.modal.get(window);
 							dialog.close().remove();
 						}catch(e){
 							console.log(e);
-						}
+						} */
 					}
 				});
 			}

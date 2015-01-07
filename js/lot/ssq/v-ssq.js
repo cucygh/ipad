@@ -149,7 +149,8 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 					title:'·¢ÆðºÏÂò',
 					url:'html/pub/coop.html',
 					id:'coop-buy',
-					fixed:true
+					fixed:true,
+					skin:'dialog-coop'
 				})
 			}
 		});

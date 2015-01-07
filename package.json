@@ -7,6 +7,12 @@
   },
   "dependencies": {
     "express": "3.4.4",
-    "ejs": "*"
+    "ejs": "*",
+    "iconv-lite": "~0.2.10",
+    "underscore": "~1.4.0"
+  },
+  "devDependencies": {
+    "grunt-iconv-lite": "^0.1.0",
+    "grunt-iconv": "0.0.4"
   }
 }
