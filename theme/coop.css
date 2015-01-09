@@ -3,6 +3,10 @@
 @import 'semantic/ui-dialog.css';
 @import 'semantic/color.css';
 body{background:#fff;-webkit-overflow-scrolling: touch;}
-#coop-dialog{width:500px;height:300px}
+#coop-dialog{width:500px;height:300px;}
+#coop-dialog .event{padding:0.2rem 0;}
+#my_say{width:220px;height:5em;min-height:5em;}
+#my_name{width:220px;}
+#my_tc,#my_buy{width:80px;}
 .err-box{overflow: hidden;height: 20px;margin-bottom: 6px;padding-left: 70px;color:red;}
 .footer{padding-left:67px;}

@@ -23,6 +23,8 @@ require.config({
 		'r-pay' : 'lot/pub/r-pay',
 		'm-ssq' : 'lot/ssq/m-ssq',
 		'v-ssq' : 'lot/ssq/v-ssq',
-		'r-ssq' : 'lot/ssq/r-ssq'
+		'r-ssq' : 'lot/ssq/r-ssq',
+		'r-coop' : 'lot/pub/r-coop',
+		'v-coop' : 'lot/pub/v-coop'
 	}
 });

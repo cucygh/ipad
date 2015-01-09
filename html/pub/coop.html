@@ -21,28 +21,46 @@
 	<link rel="stylesheet" href="theme/coop.css"/>
 	<script type="text/javascript" src="js/lib/require-2.1.11.js"></script>
 	<script type="text/javascript" src="js/config/con-default.js"></script>
+	<script type="text/javascript" src="js/lot/pub/r-coop.js"></script>
 </head>
 <body>
-	<div class="ui form segment" id="coop-dialog">
+	<div class="ui form" id="coop-dialog" style="min-height:200px;min-width:440px;padding:0">
 		<div class="ui feed form">
-		  <div class="event">
+		 <!-- 方案名称 -->
+		 <div class="event">
 			<div class="content">
 			  <div class="summary">
 				方案名称
 				<div class="date inline field">
-					 <input type="text"  id="" placeholder="双色球 第2015003期">
-					 <label><a href="#">还剩余<b class="red">15</b>个字</a></label>
+					 <input type="text"  id="my_name" placeholder="" err="最多不超过15个字">
+					 <label class="tips-txt">还剩余<b class="red">15</b>个字</label>
 				</div>
 			  </div>
 			</div>
 		  </div>
-		  <div class="event" id="hongbao">
+		  <!-- 方案名称结束 -->
+		   <!-- 合买宣言 -->
+		 <div class="event">
+			<div class="content">
+			  <div class="summary">
+				合买宣言
+				<div class="date inline field">
+					 <textarea id="my_say" err="做多不超过50个字"></textarea>
+					 <label class="tips-txt">还可以填<b class="red">50</b>个字</label>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <!-- 合买宣言结束 -->
+		  
+		  <!-- 盈利提成 -->
+		  <div class="event">
 			<div class="content">
 			  <div class="summary">
 				盈利提成
-				<div class="date field">
-					 <select name="dropdown" class="menu">
-						 <option value="0" selected="selected">0%</option>
+				<div class="date inline field">
+					 <select name="dropdown" class="menu" id="my_tc">
+						<option value="0" selected="selected">0%</option>
 						<option value="0.01">1%</option>
 						<option value="0.02">2%</option>
 						<option value="0.03">3%</option>
@@ -58,10 +76,67 @@
 			  </div>
 			</div>
 		  </div>
-		  <div class="err-box"><span class="err" id="pay_err"></span></div>
+		  <!-- 盈利提成结束 -->
+		 <!-- 我要认购 -->
+		 <div class="event">
+			<div class="content">
+			  <div class="summary">
+				我要认购
+				<div class="date inline field">
+					 <input type="text" id="my_buy" err="至少认购5%"/>
+					 <label class="tips-txt">元 发起人至少认购 5% （已认购约50%）</label>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <!-- 我要认购结束 -->
+		 <!-- 我要保底 -->
+		 <div class="event">
+			<div class="content">
+			  <div class="summary">
+				我要保底
+				<div class="date inline field">
+					 <input type="text" id="my_bd" err="保底+认购不得超过方案金额"/>
+					 <label class="tips-txt">元 最多保底 90 元</label>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <!-- 我要保底结束 -->
+		  <div class="grouped inline fields" id="is_show">
+			<label>是否公开</label>
+			<div class="field">
+			  <div class="ui radio checkbox">
+				<input type="radio" checked="checked" name="is_show" value="0">
+				<label class="txt">公开</label>
+			  </div>
+			</div>
+			<div class="field">
+			  <div class="ui radio checkbox">
+				<input type="radio" name="is_show" value="1">
+				<label class="txt">销售截止后公开</label>
+			  </div>
+			</div>
+			<div class="field">
+			  <div class="ui radio checkbox">
+				<input type="radio" name="is_show" value="3">
+				<label class="txt">仅对认购用户公开</label>
+			  </div>
+			</div>
+		  </div>
+		  <div class="event">
+			<div class="label">
+			  <i class="pencil icon"></i>
+			</div>
+			<div class="content">
+			  <div class="summary">
+				您需要支持<b class="red total">-</b>元（认购<b class="red ownbuy">-</b>元+保底<b class="red ownlast">-</b>元）
+			  </div>
+			</div>
+		  </div>
 		  <div class="footer">
-			<span class="ui submit button red" id="btn-pay">立即支付</span>
-			<a href="#">返回修改</a>
+			<span class="ui button red" id="btn-pay">立即支付</span>
+			<a href="#" class="reback">返回修改</a>
 		  </div>
 		</div>
 	</div>

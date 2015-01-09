@@ -145,6 +145,11 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 			},
 			fun_coop_buy:function(e){
 				e&&e.preventDefault();
+				var param={
+					name:'双色球 第2015001期',
+					money:20
+				}
+				localStorage.setItem('ipad_coop',JSON.stringify(param));
 				Lot.dialog.custome({
 					title:'发起合买',
 					url:'html/pub/coop.html',
