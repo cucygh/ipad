@@ -6,6 +6,7 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 					id : 220051,
 					ok_call : function (d) {
 						if (d && !_.isEmpty(d)) {
+							localStorage.setItem('ipad_lot',JSON.stringify(_.extend({Name:'双色球'},d)));
 							$('.issue').text(d.Issue);
 							/* 倒计时 */
 							$('.countdown').countdown(d.FsEndTime * 1000, function (event) {
@@ -90,6 +91,7 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 				var item = this.model.add_code(code, tpl);
 				$('#bet-list').append(item);
 				this.fun_rm_bet(); //清空号码
+				this.count_all();
 			}, //清空选号
 			fun_rm_bet : function (e) {
 				e && e.preventDefault();
@@ -109,6 +111,7 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 					items.push(this.model.add_code(code, tpl));
 				}
 				$('#bet-list').append(items.join(''));
+				this.count_all();
 			},
 			// 清空投注列表
 			fun_clear_all : function (e) {
@@ -117,21 +120,15 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 			},
 			//立即投注/代购
 			fun_own_buy : function () {
-				var $list = $('#bet-list li');
-				var code = [];
-				var count = 0;
-				$list.each(function (index, item) {
-					code.push($(item).attr('code'));
-					count += $(item).attr('count') * 1;
-				});
+				var code=this.get_code();
 				var param = {
-					BetCodes : code.join(';'),
+					BetCodes : code.code,
 					BetType : 'bet', //代购
 					LotID : Lot.bet.get_lot_name('ssq')[1],
 					OneMoney : 2,
 					BetPageID : '6001',
 					DrawNo : $('.issue').text(),
-					BetMoney : count * 2,
+					BetMoney : code.count * 2,
 					BetMulti : 1
 				};
 				Lot.bet.post(param, function (res) {
@@ -142,12 +139,25 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 						Lot.dialog.alert(res.xMessage || res.xCode);
 					}
 				});
-			},
+			},//合买
 			fun_coop_buy:function(e){
 				e&&e.preventDefault();
-				var param={
-					name:'双色球 第2015001期',
-					money:20
+				var code=this.get_code();
+				var money=$('.bet-money').text();
+				var issue=$('.issue').text();
+				var param = {
+					name : '双色球 第' + issue + '期',
+					money : money,
+					bet : {
+						BetMulti : $('.mul').val()||1,
+						DrawNo : issue,
+						BetMoney : money,
+						LotID : Lot.bet.get_lot_name('ssq')[1],
+						PlayID : '',
+						BetCodes : code.code,
+						OneMoney : 2,
+						BetPageID : 6001
+					}
 				}
 				localStorage.setItem('ipad_coop',JSON.stringify(param));
 				Lot.dialog.custome({
@@ -157,6 +167,28 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 					fixed:true,
 					skin:'dialog-coop'
 				})
+			},//获取投注号码
+			get_code:function(){
+				var $list = $('#bet-list li');
+				var code = [];
+				var count = 0;
+				$list.each(function (index, item) {
+					code.push($(item).attr('code'));
+					count += $(item).attr('count') * 1;
+				});
+				return {
+					code:code.join(';'),
+					count:count
+				}
+			},//计算方案总金额
+			count_all:function(){
+				var $list=$('#bet-list');
+				var count=0;
+				$list.find('li').each(function(index,item){
+					count+=$(item).attr('count')*1;
+				});
+				$('.bet-count').text(count);
+				$('.bet-money').text(count*2);
 			}
 		});
 	return View_ssq;

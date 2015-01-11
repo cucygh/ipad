@@ -15,7 +15,6 @@ require.config({
 		lottery : 'gallery/lottery-1.0.0',
 		math : 'gallery/math-1.0.0',
 		'user-tpl' : 'lot/pub/user-tpl',
-		'pay-tpl' : 'lot/pub/pay-tpl',
 		'm-user' : 'lot/pub/m-user',
 		'v-user' : 'lot/pub/v-user',
 		'm-pay' : 'lot/pub/m-pay',

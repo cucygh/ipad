@@ -4706,7 +4706,7 @@ a.ui.card:hover,
 }
 
 /*  UTF Reference
-.check:before { content: '\e800'; }  'î €'
+.check:before { content: '\e800'; }  '©£'
 .circle:before { content: '\e801'; }
 .ok-circled:before { content: '\e806'; }
 .ok-circle:before { content: '\e805'; }
@@ -17127,7 +17127,7 @@ ul.ui.list li:before,
   top: auto;
   left: auto;
   margin-left: -1rem;
-  content: 'â€¢';
+  content: '?';
   opacity: 1;
   color: rgba(0, 0, 0, 0.8);
   vertical-align: top;
@@ -19715,7 +19715,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.message ul.list li:before {
   position: absolute;
-  content: 'â€¢';
+  content: '?';
   left: -1em;
   height: 100%;
   vertical-align: baseline;

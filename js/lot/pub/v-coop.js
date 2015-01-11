@@ -3,20 +3,42 @@ define(['zepto', 'backbone', 'lottery'], function ($, B, Lot) {
 			el : '#coop-dialog',
 			initialize : function (options) {
 				var init = options;
-				console.log(options);
+				this.$el.data('money',init.money);
 				var $target = $(this.el);
 				$target.find('#my_name').attr('placeholder', init.name);
 				this.count(init); //统计
 			},
 			events : {
-				'click .checkbox' : 'fun_check'
+				'click .checkbox' : 'fun_check',
+				'blur input,textarea':'check',
+				'click #btn-pay':'fun_pay'
 			}, //是否公开
 			fun_check : function (e) {
 				e && e.preventDefault();
 				var $self = $(e.target).parents('.checkbox').find('input');
 				var is = $self.prop('checked');
 				$self.prop('checked', !is);
-			}, //计算注数
+			},
+			fun_pay:function(e){
+				e&&e.preventDefault();
+				var $err=$('.sum_txt');
+				var param=this.count({money:this.$el.data('money')});
+				if($err.data('flag')){
+					var dialog = top.modal.get(window);
+					Lot.bet.post(param, function (res) {
+						if (res.xCode == 0) {
+							window.localStorage.setItem('ipad_order', JSON.stringify(res));							
+							dialog.title('确认付款');
+							location.href='html/pub/pay.html';
+						} else {
+							Lot.dialog.alert(res.xMessage || res.xCode);
+						}
+					});
+					$err.html('<b class="red">通过验证</b>');
+				}else{
+					$err.html('<b class="red">验证失败</b>')
+				}
+			},//计算注数
 			count : function (param) {
 				var money = param.money; //方案金额
 				var per = $('#my_tc').val();
@@ -29,34 +51,33 @@ define(['zepto', 'backbone', 'lottery'], function ($, B, Lot) {
 				$('.ownlast').text(bd);
 				$('#my_buy').val(own);
 				$('#my_bd').val(bd);
-				/* var default = {
-					LotID : Q.pages.lott_type_id,
-					PlayID : Q.pages.play_id,
-					//投注码 此位置为par[2],顺序不要调整
-					BetCodes : Q.pages.get_post_code(),
-					//单注价格
-					OneMoney : Q.pages.price,
-					//页面来源,先写死
-					BetPageID : Q.pages.bet_page_id || 1010,
-					//期数
-					DrawNo : Q.pages.issue,
-					//总金额
-					BetMoney : $.trim($('#money').text()),
-					//倍数
-					BetMulti : $('#mul').val()
-				} */
-				return {
+				var param=JSON.parse(localStorage.getItem('ipad_coop')).bet;
+				return _.extend(param, {
 					buy_type : 'team',
-					SecrecyFlag : $('#is_show input').val(), //公开方式
+					BetType:'team',
+					SecrecyFlag : $('#is_show').find(':checked').val(), //公开方式
 					LockCount : bd, //保底金额
 					SponsorBuy : own, //认购金额
 					SponsorDeduck : $('#my_tc').val(), //中奖佣金
-					PTitle : $('#my_name').val(),
-					PMemo : $('#my_say').val()
-				}
+					PTitle : $('#my_name').val()||$('#my_name').attr('placeholder'),
+					PMemo : $('#my_say').val()||'这个人很懒，只想中大奖'
+				})
 			},//校验参数是否完整
 			check:function(){
+				var $item;
+				var $err=$('.sum_txt');
+				$err.data("flag",true);
+				var flag=true;
+				$('input').add('textarea').each(function(index,item){
+					$item=$(item);
+					if($.trim($item.val())==''){
+						flag=false;
+						$err.html($item.attr('err')).data('flag',flag);
+						return false;
+					}
+				});
 				
+				return flag;
 			}
 		});
 	return Coop;

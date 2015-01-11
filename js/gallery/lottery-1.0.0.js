@@ -58,7 +58,20 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 				tpl = tpl.replace(reg, data[p]);
 			}
 			return tpl;
-		}
+		},
+		/**
+         * @description 批量替换
+         * @param {String} str 被替换的字符串 【必选】
+         * @param {Array} arr 替换规则 【必选】
+         * @return {String} 替换后的字符串
+         * @example Q.string.mul_replace('test',[['t','h'],['st','llo']]);
+         */
+        mul_replace : function(str, arr) {
+            for (var i = 0, l = arr.length; i < l; i++) {
+                str = str.replace(arr[i][0], arr[i][1]);
+            }
+            return str;
+        }
 	};
 
 	/**
@@ -225,6 +238,35 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 			return (!!encode ? v : decodeURIComponent(v));
 		}
 	};
+	// 日期相关
+	var date={
+		/**
+         * @description 把日期对象格式化字符串格式
+         * @example Q.date.format(new Date())
+         * @param {Date/Number} date 时期对象或由Date.getTime()得到的时间数【必选】
+         * @param {String} format_style 格式化样式，默认为YYYY-MM-DD hh:mm:ss【可选】
+         * 可自定义。YYYY四位年份，YY两位年分，MM月份，DD天，hh小时，mm分种，ss秒
+         * @return {String} 格式化后的字符串
+         */
+        format : function(date, format_style) {
+            var YYYY, YY, MM, DD, hh, mm, ss;
+            date = typeof date == 'object' ? date : new Date(date * 1);
+            format_style = format_style || 'YYYY-MM-DD hh:mm:ss';
+            YYYY = date.getFullYear();
+            MM = date.getMonth() + 1;
+            DD = date.getDate();
+            hh = date.getHours();
+            mm = date.getMinutes();
+            ss = date.getSeconds();
+            YY = (YYYY + '').replace(/^\d\d/g, '');
+            MM = MM < 10 ? '0' + MM : MM;
+            DD = DD < 10 ? '0' + DD : DD;
+            hh = hh < 10 ? '0' + hh : hh;
+            mm = mm < 10 ? '0' + mm : mm;
+            ss = ss < 10 ? '0' + ss : ss;
+            return string.mul_replace(format_style, [[/YYYY/, YYYY], [/YY/, YY], [/MM/, MM], [/DD/, DD], [/hh/, hh], [/mm/, mm], [/ss/, ss]]);
+        }
+	}
 	//辅助相关
 	var help = {
 		is_web : location.protocol == "chrome-extension:" ? false : true, //是否为web端，false为扩展应用
@@ -269,6 +311,7 @@ define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
 	window.modal=dialog;
 	return {
 		string : string,
+		date : date,
 		bet : bet,
 		cookie : cookie,
 		help : help,

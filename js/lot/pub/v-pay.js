@@ -1,4 +1,4 @@
-define(['zepto', 'backbone', 'm-pay', 'lottery', 'pay-tpl'], function ($, B, mPay, Lot, tplPay) {
+define(['zepto', 'backbone', 'm-pay', 'lottery'], function ($, B, mPay, Lot) {
 	var vPay = B.View.extend({
 			el : '#wrap',
 			initialize : function () {
@@ -59,7 +59,7 @@ define(['zepto', 'backbone', 'm-pay', 'lottery', 'pay-tpl'], function ($, B, mPa
 			},
 			fun_pay : function () {
 				var order = this.get_order().xValue;
-				var _this=this;
+				var _this = this;
 				var type = {
 					'1' : '代购',
 					'2' : '合买',
@@ -101,22 +101,31 @@ define(['zepto', 'backbone', 'm-pay', 'lottery', 'pay-tpl'], function ($, B, mPa
 						} else {
 							if (res.errno == '9001') {
 								$tips.html(res.message || '登录后才能支付，请先登录');
-							}else{
-								if(res.result_code == '1611'){
+							} else {
+								if (res.result_code == '1611') {
 									$tips.html(res.message || '该订单已支付,请查看购彩记录');
-								}else{
-									$tips.html(res.message||('异常错误，错误码：'+res.result_code));
+								} else {
+									$tips.html(res.message || ('异常错误，错误码：' + res.result_code));
 								}
 							}
 						}
 					} else {
-						$(_this.el).html('购彩成功');
-						/* try{
-							var dialog=top.modal.get(window);
-							dialog.close().remove();
-						}catch(e){
+						var lot_info=JSON.parse(localStorage.getItem('ipad_lot'));
+						var param={
+							name:'双色球',
+							issue:lot_info.Issue,
+							pj:lot_info.BonusTime+'('+lot_info.BonusWeek+')',
+							kj:Lot.date.format(lot_info.OpenTime*1000,'YYYY-MM-DD hh:mm')+'(星期'+'日一二三四五六'.charAt(new Date(lot_info.OpenTime*1000).getDay())+')'
+						}
+						var tpl=$('#tpl-success').html();
+						tpl=Lot.string.compile(tpl,param);
+						$(_this.el).html(tpl);
+						try {
+							var dialog = top.modal.get(window);
+							dialog.title('购彩成功');
+						} catch (e) {
 							console.log(e);
-						} */
+						}
 					}
 				});
 			}
