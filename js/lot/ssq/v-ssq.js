@@ -10,7 +10,7 @@ define(['backbone', 'zepto', 'math', 'handlebars', 'lottery', 'underscore', 'tim
 							$('.issue').text(d.Issue);
 							/* 倒计时 */
 							$('.countdown').countdown(d.FsEndTime * 1000, function (event) {
-								$(this).html(event.strftime('<b class="day red">%D</b>天<b class="hour red">%H</b>时<b class="minute red">%M</b>分<b class="second red">%S</b>秒'));
+								$(this).html(event.strftime('<b class="day red">%-D</b>天<b class="hour red">%-H</b>时<b class="minute red">%-M</b>分<b class="second red">%-S</b>秒'));
 							});
 						}
 					}

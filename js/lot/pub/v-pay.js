@@ -16,6 +16,7 @@ define(['zepto', 'backbone', 'm-pay', 'lottery'], function ($, B, mPay, Lot) {
 						$view.find('.order-name').html(detail.LotName + ' 第 ' + '<b class="red">' + detail.DrawNo + '</b>' + ' 期 ' + type[detail.TypeID]);
 						$view.find('.pay-money').html('<b class="red">' + detail.TradeMoney / 100 + '</b>' + ' 元');
 						$view.find('.balance').html('<b class="red">' + user.cashbalance + '</b>' + ' 元');
+						var dialog=top.modal.get(window);
 						if (user.coupons) {
 							$hb_menu = $('#hongbao .menu');
 							var items = ['<option value="0">不使用红包</option>'];
@@ -29,17 +30,22 @@ define(['zepto', 'backbone', 'm-pay', 'lottery'], function ($, B, mPay, Lot) {
 									}));
 							}
 							$hb_menu.html(items.join(''));
+							dialog.height(257);
 						} else {
 							$('#hongbao').remove();
+							dialog.height(200);
 						}
+						
 					} catch (e) {
 						alert('出错了');
 					}
+					
 				}
 			},
 			model : new mPay(),
 			events : {
 				'click #btn-pay' : 'fun_pay',
+				'click .reback':'fun_back'
 			},
 			get_order : function () {
 				var order = localStorage.getItem('ipad_order');
@@ -123,11 +129,17 @@ define(['zepto', 'backbone', 'm-pay', 'lottery'], function ($, B, mPay, Lot) {
 						try {
 							var dialog = top.modal.get(window);
 							dialog.title('购彩成功');
+							top.$('.clear-all').trigger('click');
 						} catch (e) {
 							console.log(e);
 						}
 					}
 				});
+			},
+			fun_back:function(e){
+				e&&e.preventDefault();
+				var dialog=top.modal.get(window);
+				dialog.close().remove();
 			}
 		});
 	return vPay;

@@ -23,15 +23,9 @@
 		<script type="text/javascript" src="js/lib/require-2.1.11.js"></script>
 		<script type="text/javascript" src="js/config/con-default.js"></script>
 		<script type="text/javascript" src="js/lot/pub/run-pay.js"></script>
-		
-		<!-- <script type="text/javascript" src="online/js/lib/require-2.1.11.js"></script>
-		<script type="text/javascript" src="online/js/lot/ssq/run-ssq.js"></script> -->
 	</head>
 	<body>
-		<div id="wrap" style="min-height:200px;min-width:340px;padding:0">
-			<!-- <h4 class="ui header">
-			  <a href="http://www.semantic-ui.com/views/item.html">在线支付</a>
-			</h4> -->
+		<div id="wrap" style="min-height:200px;min-width:340px;padding:0;">
 			<div class="ui feed form">
 			  <div class="event">
 				<div class="content">
@@ -78,7 +72,7 @@
 					支付密码
 					<div class="date inline field">
 						 <input type="password"  id="pay_pwd" placeholder="请输入支付密码">
-						 <label><a href="#">找回支付密码</a></label>
+						 <label><a href="http://cp.360.cn/pfback/" target="_blank">找回支付密码</a></label>
 					</div>
 				  </div>
 				</div>
@@ -86,7 +80,7 @@
 			  <div class="err-box"><span class="err" id="pay_err"></span></div>
 			  <div class="footer">
 				<span class="ui submit button red" id="btn-pay">立即支付</span>
-				<a href="#">返回修改</a>
+				<a href="#" class="reback">返回修改</a>
 			  </div>
 			  
 			</div>
@@ -95,17 +89,16 @@
 		<option value="{val}">剩余{money}元 有效期：{time}</option>
 	</script>
 	<script type="text/template" id="tpl-success">
-		<div class="header">恭喜！ {name}第{issue}期订单 付款成功！</div>
+		<b class="header">恭喜！ {name}第{issue}期订单 付款成功！</b>
 		<ul>
 		  <li>系统正在提交中心出票，预计2分钟内完成</li>
 		  <li>预计开奖时间：{kj}</li>
 		  <li>预计派奖时间：{pj}</li>
 		</ul>
-		<div class="remark" style="padding:5px 20px 20px;border-top:1px #ccc dasheV;">
+		<div class="remark" style="padding:5px 0px 10px;border-top:1px #ccc dashed;">
 			<div class="cont">
-				<h4>360购彩须知：</h4>
+				<b>360购彩须知：</b>
 				<p style="color:#999;">
-					<b>如何领奖：</b>
 					360彩票采取“小奖（100万以下）自动派入360彩票账户，大奖用户可以亲自领取或委托360官方代领”的方式派发奖金；若提款，1~2个工作日到账。
 				</p>
 			</div>
