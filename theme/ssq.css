@@ -25,6 +25,7 @@ background: linear-gradient(top,rgba(252,252,252,1) 0,rgba(232,232,232,1) 50%,rg
 .red{color:#c70000;}
 .blue{color:#096ED6}
 .hot{color:#FC0014;margin-right:5px;opacity:0.7;}
+.cold{margin-right:5px;opacity:0.7;}
 .gray{color:#666;margin-right:5px;opacity:0.7;}
 .ui.segment.bet-red-code{margin:3em 2em 0;padding:0.5em 1em;}
 .ui.segment.bet-blue-code{margin:1em 2em 0.5em;padding:0.5em 1em}

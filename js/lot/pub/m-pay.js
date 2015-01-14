@@ -4,7 +4,7 @@ define(['lottery','backbone','md5'],function(Lot,Backbone,md5){
 			this.ssl=false;//是否启用SSL安全链接
 			this.code='';//支付接口状态码
 			this.msg='';//支付接口状态描述
-			this.domain=this.ssl?'https://ygh.cp.360.cn':'http://ygh.cp.360.cn';//支付接口所在域名
+			this.domain=this.ssl?Lot.help.domain.replace('http:','https:'):Lot.help.domain;//支付接口所在域名
 			this.url='/qbapissl/pgw/';//支付接口
 			this.url_bak='/qbapissl/pgw';//备用支付接口
 			this.count=0;//支付次数

@@ -1,5 +1,5 @@
 define(['zepto', 'underscore', 'modal'], function ($, Lot, Modal) {
-	var domain = 'http://ygh.cp.360.cn';
+	var domain = 'http://cp.360.cn/';
 	// ²ÊÖÖ¼ò³Æ¡¢ID¡¢È«³Æ
 	var lottery = {
 		ssq : [220051, 'Ë«É«Çò'],

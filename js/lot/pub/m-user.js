@@ -5,7 +5,7 @@ define(['backbone', 'md5', 'zepto', 'lottery'], function (Backbone, md5, $, Lot)
 			userName : '',
 			msg : '',
 			imgurl : '',
-			domain : 'http://ygh.cp.360.cn/',
+			domain : Lot.help.domain,
 			initialize : function () {
 				var _this = this;
 				is_web = location.protocol == 'chrome-extension:' ? false : true;
